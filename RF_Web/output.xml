@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.7 on win32)" generated="20190620 22:05:10.684" rpa="false">
+<suite id="s1" name="RF自动化" source="D:\RoBootFrameWork\workspace\RF自动化">
+<suite id="s1-s1" name="测试用例" source="D:\RoBootFrameWork\workspace\RF自动化\测试用例">
+<suite id="s1-s1-s1" name="登录测试" source="D:\RoBootFrameWork\workspace\RF自动化\测试用例\登录测试.robot">
+<kw name="打开浏览器" library="前后置集" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>http://120.78.128.25:8765/Index/login.html</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20190620 22:05:11.066" level="INFO">Opening browser 'chrome' to base url 'http://120.78.128.25:8765/Index/login.html'.</msg>
+<status status="PASS" starttime="20190620 22:05:11.066" endtime="20190620 22:05:17.058"></status>
+</kw>
+<status status="PASS" starttime="20190620 22:05:11.065" endtime="20190620 22:05:17.058"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="用例6：正确登录">
+<kw name="清空登录数据" library="前后置集" type="setup">
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<doc>Clears the value of text entry element identified by ``locator``.</doc>
+<arguments>
+<arg>${用户名输入框}</arg>
+</arguments>
+<status status="PASS" starttime="20190620 22:05:17.062" endtime="20190620 22:05:17.098"></status>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<doc>Clears the value of text entry element identified by ``locator``.</doc>
+<arguments>
+<arg>${密码输入框}</arg>
+</arguments>
+<status status="PASS" starttime="20190620 22:05:17.098" endtime="20190620 22:05:17.134"></status>
+</kw>
+<status status="PASS" starttime="20190620 22:05:17.061" endtime="20190620 22:05:17.134"></status>
+</kw>
+<kw name="登录页面" library="登录页面">
+<doc>username=登录名, password=密码，button=登录按钮</doc>
+<arguments>
+<arg>${login[5]['username']}</arg>
+<arg>${login[5]['password']}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${用户名输入框}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20190620 22:05:17.136" level="INFO">Typing text '18684720553' into text field '//input[@name='phone']'.</msg>
+<status status="PASS" starttime="20190620 22:05:17.135" endtime="20190620 22:05:17.250"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${密码输入框}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20190620 22:05:17.250" level="INFO">Typing text 'python' into text field 'xpath=//input[@name='password']'.</msg>
+<status status="PASS" starttime="20190620 22:05:17.250" endtime="20190620 22:05:17.324"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${登录按钮}</arg>
+</arguments>
+<msg timestamp="20190620 22:05:17.325" level="INFO">Clicking button '//button[text()='登录']'.</msg>
+<status status="PASS" starttime="20190620 22:05:17.324" endtime="20190620 22:05:17.400"></status>
+</kw>
+<status status="PASS" starttime="20190620 22:05:17.135" endtime="20190620 22:05:17.400"></status>
+</kw>
+<kw name="判断页面是否包含用户名" library="首页">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${用户名}</arg>
+</arguments>
+<status status="PASS" starttime="20190620 22:05:17.401" endtime="20190620 22:05:39.265"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${用户名}</arg>
+</arguments>
+<assign>
+<var>${msg}</var>
+</assign>
+<msg timestamp="20190620 22:05:39.309" level="INFO">${msg} = 我的帐户[python10]</msg>
+<status status="PASS" starttime="20190620 22:05:39.266" endtime="20190620 22:05:39.309"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>${msg}</arg>
+</arguments>
+<msg timestamp="20190620 22:05:39.325" level="INFO">Current page contains text '我的帐户[python10]'.</msg>
+<status status="PASS" starttime="20190620 22:05:39.310" endtime="20190620 22:05:39.325"></status>
+</kw>
+<status status="PASS" starttime="20190620 22:05:17.401" endtime="20190620 22:05:39.325"></status>
+</kw>
+<tags>
+<tag>success</tag>
+</tags>
+<status status="PASS" starttime="20190620 22:05:17.059" endtime="20190620 22:05:39.326" critical="yes"></status>
+</test>
+<kw name="关闭浏览器" library="前后置集" type="teardown">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20190620 22:05:39.327" endtime="20190620 22:05:42.282"></status>
+</kw>
+<status status="PASS" starttime="20190620 22:05:39.327" endtime="20190620 22:05:42.283"></status>
+</kw>
+<status status="PASS" starttime="20190620 22:05:10.764" endtime="20190620 22:05:42.284"></status>
+</suite>
+<status status="PASS" starttime="20190620 22:05:10.761" endtime="20190620 22:05:42.296"></status>
+</suite>
+<status status="PASS" starttime="20190620 22:05:10.733" endtime="20190620 22:05:42.306"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">success</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="RF自动化">RF自动化</stat>
+<stat pass="1" fail="0" id="s1-s1" name="测试用例">RF自动化.测试用例</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="登录测试">RF自动化.测试用例.登录测试</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
